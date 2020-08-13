@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>com.greenlaw110.simplecab</groupId>
 	<artifactId>simplecab-api</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>1.0.1</version>
 	<name>simplecab-api</name>
 	<description>A RESTful service for SimpleCab data</description>
 
