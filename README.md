@@ -43,8 +43,8 @@ CREATE VIEW cab_trip_view AS SELECT row_number() over(order by pickup_datetime) 
 
 I provide two API implementations for the tech challenge:
 
-* The [main solution](https://github.com/greenlaw110/SimpleCab/tree/master/simplecab-api-springboot) to the challenge is created based on SpringBoot. This solution strictly comply with requirement specified. The solution comes up with implementation, testing and API documentation.
-* [A secondary solution](https://github.com/greenlaw110/SimpleCab/tree/master/simplecab-api-act) is created based on [ActFramework](https://github.com/actframework/actframework). The solution implements most of the requirement specified but caching is implemented in a different way than the specification. The secondary solution is provided to demonstrate the simplicity, API documentation and automate test support on ActFramework.
+* The [main solution](https://github.com/greenlaw110/SimpleCab/tree/master/simplecab-api-springboot) to the challenge is created based on SpringBoot. This solution implements all requirements specified. The solution comes up with implementation, testing and API documentation.
+* [A secondary solution](https://github.com/greenlaw110/SimpleCab/tree/master/simplecab-api-act) is created based on [ActFramework](https://github.com/actframework/actframework). The solution implements most of the requirement specified but caching is implemented in a different way and the "ignore caching/clear cache method" requirement is not implemented in Act solution. The secondary solution is provided to demonstrate the simplicity, API documentation and automate test support on ActFramework.
 
 #### 2.1 SpringBoot solution
 
@@ -92,7 +92,7 @@ You should be able to see screen like:
 
 **2.2.2 API Document**
 
-Once you have started solution, navigate to [http://localhost:5460/~/api](http://localhost:5460/~/api) to view API document
+Once you have started the solution, navigate to [http://localhost:5460/~/api](http://localhost:5460/~/api) to view API document
 
 ![image](https://user-images.githubusercontent.com/216930/90088841-4d80aa00-dd63-11ea-8978-4d5282363e3c.png)
 
@@ -155,10 +155,11 @@ Where options can be:
 ```
 --host <host>        - specifies the api server host. Default value: localhost
 --port <port>        - specifies the api server port. Default value: 8080
---secure             - specifies whether use secure http channel (i.e. https). Default value: false
+--secure             - if presented then use secure http channel (i.e. https). Default value: false
 --context <context>  - specifies the API path context. Default value: /api/v1/cab_trips
 -m <medallion(s)     - specifies one or more cab medallion, use comma to separate multiple medallions.
 --pickup-date <date> - specifies pickup date in format `yyyy-MM-dd`, e.g. `2013-12-31`
+--no-cache           - if presented then notify the server it shall ignore cache and load data directly from database. Default value: false
 ```
 
 You can also get the help message by run the app with `--help`:
