@@ -10,7 +10,7 @@ Assumptions/Preconditions:
 
 ### 1. Initialize Database
 
-**Create database and user**
+**1.1 Create database and user**
 
 ```
 # connect to MySQL service with `root` user
@@ -22,13 +22,13 @@ GRANT ALL ON simplecab.* TO 'simplecab-user'@'localhost';
 exit
 ```
 
-**Load `ny_cab_data_cab_trip_data_full.sql` data into `simplecab` database** using `simplecab-user` login
+**1.2 Load `ny_cab_data_cab_trip_data_full.sql` data into `simplecab` database** using `simplecab-user` login
 
 ```sql
 mysql -u simplecab-user -p simplecab < /tmp/ny_cab_data_cab_trip_data_full.sql
 ```
 
-**Create `cab_trip_view` view**
+**1.3 Create `cab_trip_view` view**
 
 ```sql
 # connect to mysql shell with `simplecab-user` login and default to `simplecab` database
