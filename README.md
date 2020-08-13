@@ -161,6 +161,10 @@ Where options can be:
 --pickup-date <date> - specifies pickup date in format `yyyy-MM-dd`, e.g. `2013-12-31`
 ```
 
+You can also get the help message by run the app with `--help`:
+
+![image](https://user-images.githubusercontent.com/216930/90091256-42307d00-dd69-11ea-8c9b-cdba39e70f5a.png)
+
 **Note** 
 
 1. you don't need to specify all options as most of them has built-in default value.
