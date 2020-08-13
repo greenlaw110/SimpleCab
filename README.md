@@ -155,10 +155,11 @@ Where options can be:
 ```
 --host <host>        - specifies the api server host. Default value: localhost
 --port <port>        - specifies the api server port. Default value: 8080
---secure             - specifies whether use secure http channel (i.e. https). Default value: false
+--secure             - if presented then use secure http channel (i.e. https). Default value: false
 --context <context>  - specifies the API path context. Default value: /api/v1/cab_trips
 -m <medallion(s)     - specifies one or more cab medallion, use comma to separate multiple medallions.
 --pickup-date <date> - specifies pickup date in format `yyyy-MM-dd`, e.g. `2013-12-31`
+--no-cache           - if presented then notify the server it shall ignore cache and load data directly from database. Default value: false
 ```
 
 You can also get the help message by run the app with `--help`:
