@@ -1,6 +1,6 @@
 package com.greenlaw110.simplecab;
 
-public class SimpleCabServiceException extends Exception {
+public class SimpleCabServiceException extends RuntimeException {
 
     public SimpleCabServiceException(String message, Throwable cause) {
         super(message, cause);

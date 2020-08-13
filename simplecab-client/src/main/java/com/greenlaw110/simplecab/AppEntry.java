@@ -13,7 +13,8 @@ import java.util.Map;
 /**
  * SimpleCab API client
  */
-public class AppEntry {
+@CommandLine.Command(mixinStandardHelpOptions = true)
+public class AppEntry implements Runnable {
 
     @Option(names = {"-o", "--host"}, defaultValue = "localhost", description = "specify service host")
     private String host;
@@ -36,7 +37,7 @@ public class AppEntry {
     @Option(names = "--no-cache", defaultValue = "false", description = "when specified then service shall ignore cache and get fresh data")
     private boolean noCache;
 
-    private void run() throws SimpleCabServiceException {
+    public void run() throws SimpleCabServiceException {
         OkHttpClient http = new OkHttpClient();
         SimpleCabClient client = new SimpleCabClient(buildServiceEndpointUrl(), http);
         String[] medallions = this.medallion.split(",");
@@ -74,9 +75,7 @@ public class AppEntry {
     }
 
     public static void main(String[] args) throws SimpleCabServiceException {
-        AppEntry client = new AppEntry();
-        new CommandLine(client).parseArgs(args);
-        client.run();
+        new CommandLine(new AppEntry()).execute(args);
     }
 
     private static DateFormat fmt = new SimpleDateFormat("yyyy-MM-dd");
