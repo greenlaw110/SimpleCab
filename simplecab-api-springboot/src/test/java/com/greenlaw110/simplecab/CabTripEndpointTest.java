@@ -77,7 +77,7 @@ public class CabTripEndpointTest {
         return sb.toString();
     }
 
-    private static Date fmtDate(String s) {
+    public static Date fmtDate(String s) {
         try {
             return fmt.parse(s);
         } catch (ParseException e) {

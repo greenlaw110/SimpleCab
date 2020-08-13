@@ -4,6 +4,7 @@ import com.greenlaw110.simplecab.CacheConfig;
 import com.greenlaw110.simplecab.entities.CabTripCount;
 import com.greenlaw110.simplecab.repositories.CabTripRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.CacheManager;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Component;
@@ -19,8 +20,14 @@ public class CabTripService {
 
     public static final String CACHE_NAME = CacheConfig.CACHE_TRIP_COUNT;
 
-    @Autowired
     private CabTripRepository repository;
+
+    @Autowired
+    private CacheManager cacheManager;
+
+    public CabTripService(@Autowired CabTripRepository repository) {
+        this.repository = repository;
+    }
 
     @Cacheable(value = CACHE_NAME, condition = "!#noCache")
     public Map<String, Integer> getTripsCountByCabAndPickupDate(
