@@ -1,0 +1,14 @@
+Scenario(SimpleCab):
+  urlContext: /api/v1/cab_trips
+  interactions:
+    - description: The API should provide a way to query how many trips a particular cab (medallion) has made given a particular pickup date ( using pickup_datetime). Only consider the date and not the time.
+      request:
+        get: C3DF175374EA2E41AFC6F145B287E9D4/2013-12-30/count
+      response:
+        C3DF175374EA2E41AFC6F145B287E9D4: 9
+    - description: The API must receive one or more medallions and return how many trips each medallion has made.
+      request:
+        get: count_all?medallions=C3DF175374EA2E41AFC6F145B287E9D4&medallions=BCEB2F048FCA6F2DB11E275E6B892E15
+      response:
+        C3DF175374EA2E41AFC6F145B287E9D4: 36
+        BCEB2F048FCA6F2DB11E275E6B892E15: 50
